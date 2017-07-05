@@ -28,8 +28,8 @@ def main():
         d, h, th = read_segy(file(args.d, 'rb'))
     
     data = eval(args.expr)
-        
-    write_segy(args.output, data, trace_header_in = th)
+    
+    write_segy(args.output, data, dt = th['dt'][0], trace_header_in = th)
 
 if __name__ == "__main__":
     main()
