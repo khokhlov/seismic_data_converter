@@ -13,9 +13,11 @@ def get_bin_path(json_path, fname = None):
         fname = gen_bin_filename(json_path)
     return os.path.join(d, fname)
 
-def save_bin(json_path, data, bbox, size = None, comment = None, command = " ".join(sys.argv[:]), dtype = 'f', verbose = False):
+def save_bin(json_path, data, bbox = None, size = None, comment = None, command = " ".join(sys.argv[:]), dtype = 'f', verbose = False):
     if size is None:
         size = data.shape
+    if bbox is None:
+        bbox = size[::-1]
     bin_path = get_bin_path(json_path)
     data.astype(dtype).tofile(bin_path)
     jdata = {
