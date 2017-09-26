@@ -39,7 +39,7 @@ from trace_header_definition import TRACE_HEADER_DEF
 from ibm_float import ibm2ieee2
 
 FORMAT = '%(asctime)-15s %(levelname)s %(message)s'
-logging.basicConfig(level=logging.INFO, format=FORMAT)
+logging.basicConfig(level=logging.WARN, format=FORMAT)
 logger = logging.getLogger('segpy.segypy')
 
 version = '0.3.1'

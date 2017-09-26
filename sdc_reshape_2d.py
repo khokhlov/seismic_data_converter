@@ -27,7 +27,7 @@ def main():
     newx = np.linspace(b[0], b[1], n[0])
     newy = np.linspace(b[2], b[3], n[1])
     
-    f = RectBivariateSpline(y, x, d)
+    f = RectBivariateSpline(y, x, d, kx = 1, ky = 1)
     
     data = f(newy, newx)
     

@@ -22,8 +22,8 @@ def main():
     header = {}
     if args.receivers:
         c = np.loadtxt(args.receivers)
-        header['SourceX'] = c[:, 0]
-        header['SourceY'] = c[:, 1]
+        header['GroupX'] = c[:, 0]
+        header['GroupY'] = c[:, 1]
     
     data = np.loadtxt(args.input)
     #print 'Data size', data.shape
