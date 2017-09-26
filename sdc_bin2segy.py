@@ -22,8 +22,17 @@ def main():
     s = jd['size']
     
     spacing = (b[5] - b[4]) / d.shape[0]
+    
+    x = np.linspace(b[0], b[1], d.shape[2])
+    y = np.linspace(b[2], b[3], d.shape[1])
+    xv, yv = np.meshgrid(x, y, sparse=False, indexing='ij')
+    
+    header = {}
+    header['GroupX'] = xv.ravel()
+    header['GroupY'] = yv.ravel()
+    
 
-    write_segy(args.output, d.reshape((d.shape[0], d.shape[1]*d.shape[2])), dt = 1000000.0 * spacing)
+    write_segy(args.output, d.reshape((d.shape[0], d.shape[1]*d.shape[2])), dt = 1000000.0 * spacing, trace_header_in = header)
 
 
 if __name__ == "__main__":
