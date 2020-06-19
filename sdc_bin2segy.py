@@ -32,7 +32,7 @@ def main():
     header['GroupY'] = yv.ravel()
     
 
-    write_segy(args.output, d.reshape((d.shape[0], d.shape[1]*d.shape[2])), dt = 1000000.0 * spacing, trace_header_in = header)
+    write_segy(args.output, d.reshape((d.shape[0], d.shape[1]*d.shape[2])), dt = spacing, trace_header_in = header)
 
 
 if __name__ == "__main__":
